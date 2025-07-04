@@ -1,1 +1,0 @@
-Link to check updates - https://tech-blog-jade-three.vercel.app/

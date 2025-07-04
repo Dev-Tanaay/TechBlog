@@ -7,6 +7,7 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useRef, useState } from "react";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
 
 export default function Home() {
   const darkModeRef = useRef(false);
@@ -31,7 +32,7 @@ export default function Home() {
             }
           </button>
           <Link href="/login">
-            <button className="hover:underline-offset-4 hover:underline">SignUp</button>
+            <button className="hover:underline-offset-4 hover:underline" onClick={()=>signIn()}>SignUp</button>
           </Link>
           <Link href="/signup">
             <button
