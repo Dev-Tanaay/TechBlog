@@ -54,7 +54,7 @@ export default function Login() {
 
   const handleGoogleLogin = async () => {
     setGoogleLoading(true);
-    await signIn('google');
+    await signIn('google', { callbackUrl: '/blogs' });
     setGoogleLoading(false);
   };
 

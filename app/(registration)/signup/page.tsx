@@ -15,7 +15,7 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
 
   const [loadingForm, setLoadingForm] = useState(false);
-  const [loadingGoogle, setLoadingGoogle] = useState(false);
+  const [GoogleLoading, setGoogleLoading] = useState(false);
 
   const [error, setError] = useState<string | null>(null);
 
@@ -68,9 +68,9 @@ export default function SignUp() {
   };
 
   const handleGoogleLogin = async () => {
-    setLoadingGoogle(true);
-    await signIn('google');
-    setLoadingGoogle(false);
+    setGoogleLoading(true);
+    await signIn('google', { callbackUrl: '/blogs' });
+    setGoogleLoading(false);
   };
   useEffect(() => {
     if (error) {
@@ -133,10 +133,10 @@ export default function SignUp() {
         <p className="text-center">or</p>
         <button
           onClick={handleGoogleLogin}
-          disabled={loadingGoogle}
+          disabled={GoogleLoading}
           className="w-full bg-black text-blue-500 p-3 rounded-md text-lg font-bold hover:bg-gray-800 transition duration-200 flex justify-center items-center gap-2"
         >
-          {loadingGoogle ? (
+          {GoogleLoading ? (
             <Loading />
           ) : (
             <>

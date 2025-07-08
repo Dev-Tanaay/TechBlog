@@ -3,7 +3,6 @@ import { registerUser } from "@/lib/schemas/auth";
 import { hash } from "bcrypt";
 import { NextResponse } from "next/server";
 
-
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -13,7 +12,7 @@ export async function POST(req: Request) {
     }
     const { username, email, password } = parsed.data;
 
-    const existingUser = await prisma.user.findUnique({
+    const existingUser = await prisma.user.findFirst({
       where: { email },
     });
 
